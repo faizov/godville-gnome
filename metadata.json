@@ -1,0 +1,14 @@
+{
+    "name": "Godville Status",
+    "description": "Shows your Godville hero status in the GNOME Shell panel",
+    "uuid": "godville-status@faizov",
+    "shell-version": [
+        "42"
+    ],
+    "url": "https://github.com/faizov/godville-gnome",
+    "version": 1,
+    "gettext-domain": "godville-status",
+    "settings-schema": "org.gnome.shell.extensions.godville-status",
+    "extension.js": "extension.js",
+    "convenience.js": "convenience.js"
+} 

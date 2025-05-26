@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16" height="16" version="1.1" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+    <g fill="none" stroke="#ffffff" stroke-linecap="round" stroke-width="1.5">
+        <circle cx="8" cy="4" r="2"/>
+        <path d="m4 12c0-2.2091 1.7909-4 4-4s4 1.7909 4 4"/>
+        <path d="m6 12v-2"/>
+        <path d="m10 12v-2"/>
+    </g>
+</svg> 

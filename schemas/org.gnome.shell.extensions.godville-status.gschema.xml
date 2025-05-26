@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemalist>
+    <schema id="org.gnome.shell.extensions.godville-status" path="/org/gnome/shell/extensions/godville-status/">
+        <key name="godname" type="s">
+            <default>''</default>
+            <summary>Godville God Name</summary>
+            <description>Your Godville god name</description>
+        </key>
+        <key name="api-key" type="s">
+            <default>''</default>
+            <summary>Godville API Key</summary>
+            <description>Your Godville API key</description>
+        </key>
+        <key name="update-interval" type="i">
+            <default>300</default>
+            <summary>Update Interval</summary>
+            <description>Time between updates in seconds</description>
+        </key>
+        <key name="show-health" type="b">
+            <default>true</default>
+            <summary>Show Health</summary>
+            <description>Show health statistics</description>
+        </key>
+        <key name="show-exp" type="b">
+            <default>true</default>
+            <summary>Show Experience</summary>
+            <description>Show experience statistics</description>
+        </key>
+        <key name="show-gold" type="b">
+            <default>true</default>
+            <summary>Show Gold</summary>
+            <description>Show gold statistics</description>
+        </key>
+        <key name="show-arena" type="b">
+            <default>true</default>
+            <summary>Show Arena</summary>
+            <description>Show arena statistics</description>
+        </key>
+        <key name="show-quest" type="b">
+            <default>true</default>
+            <summary>Show Quest</summary>
+            <description>Show quest information</description>
+        </key>
+        <key name="show-pet" type="b">
+            <default>true</default>
+            <summary>Show Pet</summary>
+            <description>Show pet information</description>
+        </key>
+        <key name="show-clan" type="b">
+            <default>true</default>
+            <summary>Show Clan</summary>
+            <description>Show clan information</description>
+        </key>
+        <key name="show-alignment" type="b">
+            <default>true</default>
+            <summary>Show Alignment</summary>
+            <description>Show alignment information</description>
+        </key>
+        <key name="show-distance" type="b">
+            <default>true</default>
+            <summary>Show Distance</summary>
+            <description>Show distance information</description>
+        </key>
+        <key name="show-diary" type="b">
+            <default>true</default>
+            <summary>Show Diary</summary>
+            <description>Show diary entries</description>
+        </key>
+        <key name="show-boss" type="b">
+            <default>true</default>
+            <summary>Show Boss</summary>
+            <description>Show boss information</description>
+        </key>
+        <key name="show-inventory" type="b">
+            <default>true</default>
+            <summary>Show Inventory</summary>
+            <description>Show inventory information</description>
+        </key>
+        <key name="show-materials" type="b">
+            <default>true</default>
+            <summary>Show Materials</summary>
+            <description>Show materials information</description>
+        </key>
+        <key name="order-health" type="i">
+            <default>0</default>
+            <summary>Health Order</summary>
+            <description>Display order for health statistics</description>
+        </key>
+        <key name="order-exp" type="i">
+            <default>1</default>
+            <summary>Experience Order</summary>
+            <description>Display order for experience statistics</description>
+        </key>
+        <key name="order-gold" type="i">
+            <default>2</default>
+            <summary>Gold Order</summary>
+            <description>Display order for gold statistics</description>
+        </key>
+        <key name="order-arena" type="i">
+            <default>3</default>
+            <summary>Arena Order</summary>
+            <description>Display order for arena statistics</description>
+        </key>
+        <key name="order-quest" type="i">
+            <default>4</default>
+            <summary>Quest Order</summary>
+            <description>Display order for quest information</description>
+        </key>
+        <key name="order-pet" type="i">
+            <default>5</default>
+            <summary>Pet Order</summary>
+            <description>Display order for pet information</description>
+        </key>
+        <key name="order-clan" type="i">
+            <default>6</default>
+            <summary>Clan Order</summary>
+            <description>Display order for clan information</description>
+        </key>
+        <key name="order-alignment" type="i">
+            <default>7</default>
+            <summary>Alignment Order</summary>
+            <description>Display order for alignment information</description>
+        </key>
+        <key name="order-boss" type="i">
+            <default>8</default>
+            <summary>Boss Order</summary>
+            <description>Display order for boss information</description>
+        </key>
+        <key name="order-inventory" type="i">
+            <default>9</default>
+            <summary>Inventory Order</summary>
+            <description>Display order for inventory information</description>
+        </key>
+        <key name="order-materials" type="i">
+            <default>10</default>
+            <summary>Materials Order</summary>
+            <description>Display order for materials information</description>
+        </key>
+        <key name="order-distance" type="i">
+            <default>11</default>
+            <summary>Distance Order</summary>
+            <description>Display order for distance information</description>
+        </key>
+        <!-- New settings for status display -->
+        <key name="status-show-health" type="b">
+            <default>true</default>
+            <summary>Show Health in Status</summary>
+            <description>Show health in the status bar</description>
+        </key>
+        <key name="status-show-godpower" type="b">
+            <default>true</default>
+            <summary>Show Godpower in Status</summary>
+            <description>Show godpower in the status bar</description>
+        </key>
+        <key name="status-show-diary" type="b">
+            <default>true</default>
+            <summary>Show Diary in Status</summary>
+            <description>Show last diary entry in the status bar</description>
+        </key>
+        <key name="status-show-quest" type="b">
+            <default>true</default>
+            <summary>Show Quest in Status</summary>
+            <description>Show current quest in the status bar</description>
+        </key>
+        <key name="status-max-length" type="i">
+            <default>50</default>
+            <summary>Status Max Length</summary>
+            <description>Maximum length of status text</description>
+            <range min="10" max="200"/>
+        </key>
+        <key name="extension-position" type="s">
+            <default>'center'</default>
+            <summary>Extension Position</summary>
+            <description>Position of the extension in the panel (left, center, right)</description>
+        </key>
+    </schema>
+</schemalist> 

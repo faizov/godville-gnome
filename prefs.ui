@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <requires lib="gtk" version="4.0"/>
+  <requires lib="adwaita" version="1.0"/>
+  <object class="AdwPreferencesPage" id="preferencesPage">
+    <property name="title">General</property>
+    <child>
+      <object class="AdwPreferencesGroup">
+        <property name="title">Account Settings</property>
+        <child>
+          <object class="AdwActionRow" id="godnameRow">
+            <property name="title">God Name</property>
+            <property name="subtitle">Your Godville god name</property>
+            <child type="suffix">
+              <object class="GtkEntry" id="godnameEntry">
+                <property name="hexpand">true</property>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="AdwActionRow" id="apiKeyRow">
+            <property name="title">API Key</property>
+            <property name="subtitle">Your Godville API key</property>
+            <child type="suffix">
+              <object class="GtkEntry" id="apiKeyEntry">
+                <property name="hexpand">true</property>
+              </object>
+            </child>
+          </object>
+        </child>
+      </object>
+    </child>
+    <child>
+      <object class="AdwPreferencesGroup">
+        <property name="title">Status Display</property>
+        <child>
+          <object class="AdwActionRow" id="status-show-health">
+            <property name="title">Show Health</property>
+            <property name="subtitle">Show health in the status bar</property>
+            <child type="suffix">
+              <object class="GtkSwitch" id="status-show-health-switch">
+                <property name="valign">center</property>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="AdwActionRow" id="status-show-godpower">
+            <property name="title">Show Godpower</property>
+            <property name="subtitle">Show godpower in the status bar</property>
+            <child type="suffix">
+              <object class="GtkSwitch" id="status-show-godpower-switch">
+                <property name="valign">center</property>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="AdwActionRow" id="status-show-diary">
+            <property name="title">Show Diary</property>
+            <property name="subtitle">Show last diary entry in the status bar</property>
+            <child type="suffix">
+              <object class="GtkSwitch" id="status-show-diary-switch">
+                <property name="valign">center</property>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="AdwActionRow" id="status-show-quest">
+            <property name="title">Show Quest</property>
+            <property name="subtitle">Show current quest in the status bar</property>
+            <child type="suffix">
+              <object class="GtkSwitch" id="status-show-quest-switch">
+                <property name="valign">center</property>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="AdwActionRow" id="status-max-length">
+            <property name="title">Status Max Length</property>
+            <property name="subtitle">Maximum length of status text</property>
+            <child type="suffix">
+              <object class="GtkSpinButton" id="status-max-length-spin">
+                <property name="valign">center</property>
+                <property name="adjustment">
+                  <object class="GtkAdjustment">
+                    <property name="lower">10</property>
+                    <property name="upper">200</property>
+                    <property name="step-increment">5</property>
+                    <property name="value">50</property>
+                  </object>
+                </property>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="AdwActionRow" id="extension-position">
+            <property name="title">Extension Position</property>
+            <property name="subtitle">Position of the extension in the panel</property>
+            <child type="suffix">
+              <object class="GtkDropDown" id="extension-position-combo">
+                <property name="valign">center</property>
+                <property name="halign">end</property>
+                <property name="hexpand">false</property>
+                <property name="selected">1</property>
+                <property name="model">
+                  <object class="GtkStringList">
+                    <items>
+                      <item>Left</item>
+                      <item>Center</item>
+                      <item>Right</item>
+                    </items>
+                  </object>
+                </property>
+              </object>
+            </child>
+          </object>
+        </child>
+      </object>
+    </child>
+    <child>
+      <object class="AdwPreferencesGroup">
+        <property name="title">Display Settings</property>
+        <child>
+          <object class="AdwActionRow" id="show-health">
+            <property name="title">Show Health</property>
+            <property name="subtitle">Show health statistics</property>
+            <child type="suffix">
+              <object class="GtkSwitch" id="show-health-switch">
+                <property name="valign">center</property>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="AdwActionRow" id="show-exp">
+            <property name="title">Show Experience</property>
+            <property name="subtitle">Show experience statistics</property>
+            <child type="suffix">
+              <object class="GtkSwitch" id="show-exp-switch">
+                <property name="valign">center</property>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="AdwActionRow" id="show-gold">
+            <property name="title">Show Gold</property>
+            <property name="subtitle">Show gold statistics</property>
+            <child type="suffix">
+              <object class="GtkSwitch" id="show-gold-switch">
+                <property name="valign">center</property>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="AdwActionRow" id="show-arena">
+            <property name="title">Show Arena</property>
+            <property name="subtitle">Show arena statistics</property>
+            <child type="suffix">
+              <object class="GtkSwitch" id="show-arena-switch">
+                <property name="valign">center</property>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="AdwActionRow" id="show-quest">
+            <property name="title">Show Quest</property>
+            <property name="subtitle">Show quest information</property>
+            <child type="suffix">
+              <object class="GtkSwitch" id="show-quest-switch">
+                <property name="valign">center</property>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="AdwActionRow" id="show-pet">
+            <property name="title">Show Pet</property>
+            <property name="subtitle">Show pet information</property>
+            <child type="suffix">
+              <object class="GtkSwitch" id="show-pet-switch">
+                <property name="valign">center</property>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="AdwActionRow" id="show-clan">
+            <property name="title">Show Clan</property>
+            <property name="subtitle">Show clan information</property>
+            <child type="suffix">
+              <object class="GtkSwitch" id="show-clan-switch">
+                <property name="valign">center</property>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="AdwActionRow" id="show-alignment">
+            <property name="title">Show Alignment</property>
+            <property name="subtitle">Show alignment information</property>
+            <child type="suffix">
+              <object class="GtkSwitch" id="show-alignment-switch">
+                <property name="valign">center</property>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="AdwActionRow" id="show-boss">
+            <property name="title">Show Boss</property>
+            <property name="subtitle">Show boss information</property>
+            <child type="suffix">
+              <object class="GtkSwitch" id="show-boss-switch">
+                <property name="valign">center</property>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="AdwActionRow" id="show-inventory">
+            <property name="title">Show Inventory</property>
+            <property name="subtitle">Show inventory information</property>
+            <child type="suffix">
+              <object class="GtkSwitch" id="show-inventory-switch">
+                <property name="valign">center</property>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="AdwActionRow" id="show-materials">
+            <property name="title">Show Materials</property>
+            <property name="subtitle">Show materials information</property>
+            <child type="suffix">
+              <object class="GtkSwitch" id="show-materials-switch">
+                <property name="valign">center</property>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="AdwActionRow" id="show-distance">
+            <property name="title">Show Distance</property>
+            <property name="subtitle">Show distance information</property>
+            <child type="suffix">
+              <object class="GtkSwitch" id="show-distance-switch">
+                <property name="valign">center</property>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="AdwActionRow" id="show-diary">
+            <property name="title">Show Diary</property>
+            <property name="subtitle">Show diary entries</property>
+            <child type="suffix">
+              <object class="GtkSwitch" id="show-diary-switch">
+                <property name="valign">center</property>
+              </object>
+            </child>
+          </object>
+        </child>
+      </object>
+    </child>
+  </object>
+</interface> 
