@@ -1,0 +1,79 @@
+# GNOME extension specific
+*.log
+*.pot
+*.mo
+*.po~
+*.pot~
+*.mo~
+*.po
+
+# Build and installation
+*.o
+*.so
+*.la
+*.lo
+*.a
+*.pyc
+*.pyo
+*.pyd
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# IDE and editor files
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.DS_Store
+.project
+.classpath
+.settings/
+*.sublime-workspace
+*.sublime-project
+
+# Temporary files
+*.tmp
+*.bak
+*.backup
+*.orig
+*.rej
+*.patch
+*.diff
+
+# Node.js (if used for development)
+node_modules/
+npm-debug.log
+yarn-debug.log
+yarn-error.log
+package-lock.json
+yarn.lock
+
+# Python virtual environment
+venv/
+env/
+ENV/
+
+# Local configuration
+*.local
+.env
+.env.local
+.env.*.local
+
+# Debug files
+*.debug
+*.debuginfo 
