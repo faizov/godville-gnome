@@ -1,6 +1,6 @@
 'use strict';
 
-const { Adw, Gtk, Gio, GObject } = imports.gi;
+const { Adw, Gtk, Gio, GObject, Gdk } = imports.gi;
 
 const ExtensionUtils = imports.misc.extensionUtils;
 const Me = ExtensionUtils.getCurrentExtension();
@@ -86,6 +86,36 @@ const GeneralPage = GObject.registerClass(
 
             showInventoryRow.add_suffix(showInventorySwitch);
             group.add(showInventoryRow);
+
+            // Diary color
+            const diaryColorRow = new Adw.ActionRow({
+                title: 'Diary Color',
+                subtitle: 'Color for the diary entry in the status bar'
+            });
+
+            const diaryColorButton = new Gtk.ColorButton({
+                rgba: new Gdk.RGBA(),
+                use_alpha: false,
+                valign: Gtk.Align.CENTER
+            });
+
+            // Convert hex color to RGBA
+            const hexColor = settings.get_string('diary-color');
+            const rgba = new Gdk.RGBA();
+            rgba.parse(hexColor);
+            diaryColorButton.set_rgba(rgba);
+
+            diaryColorButton.connect('color-set', (button) => {
+                const color = button.get_rgba();
+                const hex = '#' + 
+                    Math.round(color.red * 255).toString(16).padStart(2, '0') +
+                    Math.round(color.green * 255).toString(16).padStart(2, '0') +
+                    Math.round(color.blue * 255).toString(16).padStart(2, '0');
+                settings.set_string('diary-color', hex);
+            });
+
+            diaryColorRow.add_suffix(diaryColorButton);
+            group.add(diaryColorRow);
 
             this.add(group);
         }

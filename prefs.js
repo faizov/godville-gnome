@@ -1,6 +1,6 @@
 'use strict';
 
-const { Adw, Gtk, Gio } = imports.gi;
+const { Adw, Gtk, Gio, Gdk } = imports.gi;
 const ExtensionUtils = imports.misc.extensionUtils;
 const Me = ExtensionUtils.getCurrentExtension();
 
@@ -101,6 +101,126 @@ function fillPreferencesWindow(window) {
         // Make sure the dropdown is interactive
         positionCombo.set_sensitive(true);
         positionCombo.set_can_focus(true);
+    }
+
+    // Connect color buttons
+    const colorHighButton = builder.get_object('health-color-high-button');
+    const colorMediumButton = builder.get_object('health-color-medium-button');
+    const colorLowButton = builder.get_object('health-color-low-button');
+
+    // Set initial colors
+    const parseColor = (colorStr) => {
+        // Remove # if present
+        colorStr = colorStr.replace('#', '');
+        // Parse hex values
+        const r = parseInt(colorStr.substring(0, 2), 16) / 255;
+        const g = parseInt(colorStr.substring(2, 4), 16) / 255;
+        const b = parseInt(colorStr.substring(4, 6), 16) / 255;
+        return new Gdk.RGBA({ red: r, green: g, blue: b, alpha: 1.0 });
+    };
+
+    colorHighButton.set_rgba(parseColor(settings.get_string('health-color-high')));
+    colorMediumButton.set_rgba(parseColor(settings.get_string('health-color-medium')));
+    colorLowButton.set_rgba(parseColor(settings.get_string('health-color-low')));
+
+    // Connect color change signals
+    colorHighButton.connect('color-set', (button) => {
+        const color = button.get_rgba();
+        const colorStr = color.to_string();
+        log(`[Godville Status] Setting high health color to: ${colorStr}`);
+        settings.set_string('health-color-high', colorStr);
+    });
+
+    colorMediumButton.connect('color-set', (button) => {
+        const color = button.get_rgba();
+        const colorStr = color.to_string();
+        log(`[Godville Status] Setting medium health color to: ${colorStr}`);
+        settings.set_string('health-color-medium', colorStr);
+    });
+
+    colorLowButton.connect('color-set', (button) => {
+        const color = button.get_rgba();
+        const colorStr = color.to_string();
+        log(`[Godville Status] Setting low health color to: ${colorStr}`);
+        settings.set_string('health-color-low', colorStr);
+    });
+
+    // Connect threshold spin buttons
+    const thresholdHighSpin = builder.get_object('health-threshold-high-spin');
+    const thresholdMediumSpin = builder.get_object('health-threshold-medium-spin');
+
+    // Set initial values
+    thresholdHighSpin.set_value(settings.get_int('health-threshold-high'));
+    thresholdMediumSpin.set_value(settings.get_int('health-threshold-medium'));
+
+    // Connect threshold change signals
+    thresholdHighSpin.connect('value-changed', (spin) => {
+        const value = spin.get_value_as_int();
+        log(`[Godville Status] Setting high health threshold to: ${value}`);
+        settings.set_int('health-threshold-high', value);
+    });
+
+    thresholdMediumSpin.connect('value-changed', (spin) => {
+        const value = spin.get_value_as_int();
+        log(`[Godville Status] Setting medium health threshold to: ${value}`);
+        settings.set_int('health-threshold-medium', value);
+    });
+
+    // Bind diary color
+    const diaryColorButton = builder.get_object('diary-color-button');
+    if (diaryColorButton) {
+        // Convert hex color to RGBA
+        const hexColor = settings.get_string('diary-color');
+        const rgba = new Gdk.RGBA();
+        rgba.parse(hexColor);
+        diaryColorButton.set_rgba(rgba);
+
+        diaryColorButton.connect('color-set', (button) => {
+            const color = button.get_rgba();
+            const hex = '#' + 
+                Math.round(color.red * 255).toString(16).padStart(2, '0') +
+                Math.round(color.green * 255).toString(16).padStart(2, '0') +
+                Math.round(color.blue * 255).toString(16).padStart(2, '0');
+            settings.set_string('diary-color', hex);
+        });
+    }
+
+    // Bind quest color
+    const questColorButton = builder.get_object('quest-color-button');
+    if (questColorButton) {
+        // Convert hex color to RGBA
+        const hexColor = settings.get_string('quest-color');
+        const rgba = new Gdk.RGBA();
+        rgba.parse(hexColor);
+        questColorButton.set_rgba(rgba);
+
+        questColorButton.connect('color-set', (button) => {
+            const color = button.get_rgba();
+            const hex = '#' + 
+                Math.round(color.red * 255).toString(16).padStart(2, '0') +
+                Math.round(color.green * 255).toString(16).padStart(2, '0') +
+                Math.round(color.blue * 255).toString(16).padStart(2, '0');
+            settings.set_string('quest-color', hex);
+        });
+    }
+
+    // Bind godpower color
+    const godpowerColorButton = builder.get_object('godpower-color-button');
+    if (godpowerColorButton) {
+        // Convert hex color to RGBA
+        const hexColor = settings.get_string('godpower-color');
+        const rgba = new Gdk.RGBA();
+        rgba.parse(hexColor);
+        godpowerColorButton.set_rgba(rgba);
+
+        godpowerColorButton.connect('color-set', (button) => {
+            const color = button.get_rgba();
+            const hex = '#' + 
+                Math.round(color.red * 255).toString(16).padStart(2, '0') +
+                Math.round(color.green * 255).toString(16).padStart(2, '0') +
+                Math.round(color.blue * 255).toString(16).padStart(2, '0');
+            settings.set_string('godpower-color', hex);
+        });
     }
 
     // Add window close handler to ensure settings are saved

@@ -98,6 +98,42 @@
           </object>
         </child>
         <child>
+          <object class="AdwActionRow" id="diary-color">
+            <property name="title">Diary Color</property>
+            <property name="subtitle">Color for the diary entry in the status bar</property>
+            <child type="suffix">
+              <object class="GtkColorButton" id="diary-color-button">
+                <property name="valign">center</property>
+                <property name="use-alpha">false</property>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="AdwActionRow" id="quest-color">
+            <property name="title">Quest Color</property>
+            <property name="subtitle">Color for the quest in the status bar</property>
+            <child type="suffix">
+              <object class="GtkColorButton" id="quest-color-button">
+                <property name="valign">center</property>
+                <property name="use-alpha">false</property>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="AdwActionRow" id="godpower-color">
+            <property name="title">Godpower Color</property>
+            <property name="subtitle">Color for the godpower in the status bar</property>
+            <child type="suffix">
+              <object class="GtkColorButton" id="godpower-color-button">
+                <property name="valign">center</property>
+                <property name="use-alpha">false</property>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
           <object class="AdwActionRow" id="extension-position">
             <property name="title">Extension Position</property>
             <property name="subtitle">Position of the extension in the panel</property>
@@ -330,6 +366,85 @@
             <child type="suffix">
               <object class="GtkSwitch" id="show-temple-switch">
                 <property name="valign">center</property>
+              </object>
+            </child>
+          </object>
+        </child>
+      </object>
+    </child>
+    <child>
+      <object class="AdwPreferencesGroup">
+        <property name="title">Health Colors</property>
+        <child>
+          <object class="AdwActionRow" id="health-color-high">
+            <property name="title">High Health Color</property>
+            <property name="subtitle">Color for high health percentage</property>
+            <child type="suffix">
+              <object class="GtkColorButton" id="health-color-high-button">
+                <property name="valign">center</property>
+                <property name="use-alpha">false</property>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="AdwActionRow" id="health-color-medium">
+            <property name="title">Medium Health Color</property>
+            <property name="subtitle">Color for medium health percentage</property>
+            <child type="suffix">
+              <object class="GtkColorButton" id="health-color-medium-button">
+                <property name="valign">center</property>
+                <property name="use-alpha">false</property>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="AdwActionRow" id="health-color-low">
+            <property name="title">Low Health Color</property>
+            <property name="subtitle">Color for low health percentage</property>
+            <child type="suffix">
+              <object class="GtkColorButton" id="health-color-low-button">
+                <property name="valign">center</property>
+                <property name="use-alpha">false</property>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="AdwActionRow" id="health-threshold-high">
+            <property name="title">High Health Threshold</property>
+            <property name="subtitle">Percentage threshold for high health color</property>
+            <child type="suffix">
+              <object class="GtkSpinButton" id="health-threshold-high-spin">
+                <property name="valign">center</property>
+                <property name="adjustment">
+                  <object class="GtkAdjustment">
+                    <property name="lower">50</property>
+                    <property name="upper">100</property>
+                    <property name="step-increment">5</property>
+                    <property name="value">70</property>
+                  </object>
+                </property>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="AdwActionRow" id="health-threshold-medium">
+            <property name="title">Medium Health Threshold</property>
+            <property name="subtitle">Percentage threshold for medium health color</property>
+            <child type="suffix">
+              <object class="GtkSpinButton" id="health-threshold-medium-spin">
+                <property name="valign">center</property>
+                <property name="adjustment">
+                  <object class="GtkAdjustment">
+                    <property name="lower">0</property>
+                    <property name="upper">50</property>
+                    <property name="step-increment">5</property>
+                    <property name="value">30</property>
+                  </object>
+                </property>
               </object>
             </child>
           </object>

@@ -76,4 +76,7 @@ ENV/
 
 # Debug files
 *.debug
-*.debuginfo 
+*.debuginfo
+
+# Gschemas compiled
+gschemas.compiled 
