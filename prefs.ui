@@ -181,6 +181,17 @@
           </object>
         </child>
         <child>
+          <object class="AdwActionRow" id="show-side-job">
+            <property name="title">Show Side Job</property>
+            <property name="subtitle">Show side job progress</property>
+            <child type="suffix">
+              <object class="GtkSwitch" id="show-side-job-switch">
+                <property name="valign">center</property>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
           <object class="AdwActionRow" id="show-pet">
             <property name="title">Show Pet</property>
             <property name="subtitle">Show pet information</property>
@@ -263,6 +274,61 @@
             <property name="subtitle">Show diary entries</property>
             <child type="suffix">
               <object class="GtkSwitch" id="show-diary-switch">
+                <property name="valign">center</property>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="AdwActionRow" id="show-eye">
+            <property name="title">Show Third Eye</property>
+            <property name="subtitle">Show Third Eye entries</property>
+            <child type="suffix">
+              <object class="GtkSwitch" id="show-eye-switch">
+                <property name="valign">center</property>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="AdwActionRow" id="show-aura">
+            <property name="title">Show Aura</property>
+            <property name="subtitle">Show hero's aura</property>
+            <child type="suffix">
+              <object class="GtkSwitch" id="show-aura-switch">
+                <property name="valign">center</property>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="AdwActionRow" id="show-words">
+            <property name="title">Show Words</property>
+            <property name="subtitle">Show words information</property>
+            <child type="suffix">
+              <object class="GtkSwitch" id="show-words-switch">
+                <property name="valign">center</property>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="AdwActionRow" id="show-savings">
+            <property name="title">Show Savings</property>
+            <property name="subtitle">Show savings information</property>
+            <child type="suffix">
+              <object class="GtkSwitch" id="show-savings-switch">
+                <property name="valign">center</property>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="AdwActionRow" id="show-temple">
+            <property name="title">Show Temple</property>
+            <property name="subtitle">Show temple information</property>
+            <child type="suffix">
+              <object class="GtkSwitch" id="show-temple-switch">
                 <property name="valign">center</property>
               </object>
             </child>

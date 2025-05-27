@@ -2,47 +2,30 @@
 
 A GNOME Shell extension that displays your Godville game character status in the top panel.
 
-![Screenshot](screenshots/main.png)
-
 ## Features
 
-- Shows current hero status in the panel:
-  - Health points
-  - Godpower
-  - Current quest
-  - Last diary entry
+- Shows current health status in the panel
 - Displays detailed information in a dropdown menu:
-  - Health bar with color indicators
-  - Experience and level
+  - Health points
+  - Character level
+  - Current quest
   - Gold amount
-  - Arena statistics
-  - Current quest and progress
   - Pet information
-  - Clan status
-  - Alignment
-  - Boss information
-  - Inventory status
-  - Materials count
-  - Distance and town
 - Auto-refreshes every 5 minutes
 - Manual refresh option
-- Customizable display options
-- Support for multiple languages
 
 ## Installation
 
-### From Source
-
 1. Clone this repository:
 ```bash
-git clone https://github.com/faizov/godville-gnome.git
+git clone https://github.com/yourusername/godville-gnome.git
 cd godville-gnome
 ```
 
-2. Run the installation script:
+2. Copy the extension to your GNOME extensions directory:
 ```bash
-chmod +x install.sh
-./install.sh
+mkdir -p ~/.local/share/gnome-shell/extensions/godville-status@faizov.dev.com
+cp -r * ~/.local/share/gnome-shell/extensions/godville-status@faizov.dev.com/
 ```
 
 3. Restart GNOME Shell:
@@ -51,59 +34,22 @@ chmod +x install.sh
 
 4. Enable the extension using GNOME Extensions app or:
 ```bash
-gnome-extensions enable godville-status@faizov
+gnome-extensions enable godville-status@faizov.dev.com
 ```
-
-### From GNOME Extensions Website
-
-1. Visit [GNOME Extensions](https://extensions.gnome.org)
-2. Search for "Godville Status"
-3. Click "Install"
-4. Restart GNOME Shell (Alt+F2, type 'r', press Enter)
 
 ## Configuration
 
-The extension can be configured through the GNOME Extensions app:
+The extension is currently configured with the following settings:
+- Godname: 
+- API Key: 
 
-### Basic Settings
-- **Godname**: Your Godville god name
-- **API Key**: Your Godville API key (get it from your profile page)
-- **Update Interval**: Time between automatic updates (in seconds)
-- **Extension Position**: Position in the panel (left, center, right)
-
-### Display Settings
-- **Show in Status Bar**:
-  - Health points
-  - Godpower
-  - Current quest
-  - Last diary entry
-- **Show in Menu**:
-  - Health bar
-  - Experience
-  - Gold
-  - Arena
-  - Quest
-  - Pet
-  - Clan
-  - Alignment
-  - Boss
-  - Inventory
-  - Materials
-  - Distance
-
-### Order Settings
-Customize the order of displayed information in the menu.
+To change these settings, edit the `extension.js` file and modify the values in the `_fetchData()` method.
 
 ## Requirements
 
-- GNOME Shell 42 or later
+- GNOME Shell 42
 - Internet connection for API access
-- Godville account and API key
 
-## Troubleshooting
+## License
 
-If the extension doesn't work:
-1. Make sure you've entered the correct godname and API key
-2. Check your internet connection
-3. Try restarting GNOME Shell
-4. Check the logs: `journalctl -f -n 50 | grep -i "godville"`
+MIT License 

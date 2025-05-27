@@ -1,10 +1,11 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: godville-status\n"
+"Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-03-19 12:00+0300\n"
 "PO-Revision-Date: 2024-03-19 12:00+0300\n"
 "Last-Translator: \n"
-"Language-Team: \n"
+"Language-Team: Russian\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -26,14 +27,20 @@ msgstr "Арена"
 msgid "Quest"
 msgstr "Задание"
 
+msgid "Side Job"
+msgstr "Подряд"
+
+msgid "Aura"
+msgstr "Аура"
+
 msgid "Pet"
 msgstr "Питомец"
 
 msgid "Clan"
-msgstr "Клан"
+msgstr "Гильдия"
 
 msgid "Alignment"
-msgstr "Мировоззрение"
+msgstr "Характер"
 
 msgid "Boss"
 msgstr "Босс"
@@ -43,6 +50,33 @@ msgstr "Инвентарь"
 
 msgid "Materials"
 msgstr "Материалы"
+
+msgid "Distance"
+msgstr "Расстояние"
+
+msgid "Activatables"
+msgstr "Активируемые трофеи"
+
+msgid "Relics"
+msgstr "Реликвии"
+
+msgid "Words"
+msgstr "Слова"
+
+msgid "Savings"
+msgstr "Сбережения"
+
+msgid "Ark"
+msgstr "Ковчег"
+
+msgid "Temple"
+msgstr "Храм"
+
+msgid "Book"
+msgstr "Книга"
+
+msgid "Souls"
+msgstr "Души"
 
 msgid "Health: %d/%d (godpower: %d%%)"
 msgstr "Здоровье: %d/%d (сила бога: %d%%)"
@@ -59,14 +93,20 @@ msgstr "Арена: %dП/%dП"
 msgid "Quest: %s (%d%%)"
 msgstr "Задание: %s (%d%%)"
 
+msgid "Side Job: %s (%d%%)"
+msgstr "Подряд: %s (%d%%)"
+
+msgid "Aura: %s"
+msgstr "Аура: %s"
+
 msgid "Pet: %s (%s)"
 msgstr "Питомец: %s (%s)"
 
 msgid "Clan: %s (%s)"
-msgstr "Клан: %s (%s)"
+msgstr "Гильдия: %s (%s)"
 
 msgid "Alignment: %s"
-msgstr "Мировоззрение: %s"
+msgstr "Характер: %s"
 
 msgid "Boss: %s (Power: %d)"
 msgstr "Босс: %s (Сила: %d)"
@@ -75,13 +115,43 @@ msgid "Inventory: %d/%d"
 msgstr "Инвентарь: %d/%d"
 
 msgid "Materials: %d bricks, %d wood"
-msgstr "Материалы: %d кирпичей, %d дерева"
+msgstr "Материалы: %d кирпичей, %d поленьев"
 
 msgid "Distance: %d"
-msgstr "Шагов до столицы: %d"
+msgstr "Расстояние: %d"
 
 msgid " (%s)"
 msgstr " (%s)"
+
+msgid "Activatables: %s"
+msgstr "Активируемые трофеи: %s"
+
+msgid "Relics: %s"
+msgstr "Реликвии: %s"
+
+msgid "Words: %d"
+msgstr "Слова: %d"
+
+msgid "Savings: %s"
+msgstr "Сбережения: %s"
+
+msgid "Ark: %s"
+msgstr "Ковчег: %s"
+
+msgid " (%d♀/%d♂)"
+msgstr " (%d♀/%d♂)"
+
+msgid "Temple completed: %s"
+msgstr "Храм построен: %s"
+
+msgid "Book completed: %s"
+msgstr "Книга написана: %s"
+
+msgid "Souls completed: %s"
+msgstr "Души собраны: %s"
+
+msgid "Souls: %s"
+msgstr "Души: %s"
 
 msgid "No diary entries"
 msgstr "Нет записей в дневнике"
@@ -118,3 +188,21 @@ msgstr "Порядок статистик"
 
 msgid "Apply"
 msgstr "Применить" 
+
+msgid "Last diary entry"
+msgstr "Последняя запись дневника"
+
+msgid "Last eye entry"
+msgstr "Последняя запись третьего глаза"
+
+msgid "Error getting data"
+msgstr "Ошибка получения данных"
+
+msgid "Could not get data. You may need to log into the game to update the data."
+msgstr "Не удалось получить данные. Возможно, нужно зайти в игру для обновления данных."
+
+msgid "Error processing response"
+msgstr "Ошибка обработки ответа"
+
+msgid "Could not process server response. You may need to log into the game to update the data."
+msgstr "Не удалось обработать ответ от сервера. Возможно, нужно зайти в игру для обновления данных." 

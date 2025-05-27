@@ -1,6 +1,6 @@
 {
     "name": "Godville Status",
-    "description": "Shows your Godville hero status in the GNOME Shell panel",
+    "description": "Display Godville game character status in GNOME Shell",
     "uuid": "godville-status@faizov",
     "shell-version": [
         "42"
@@ -10,5 +10,5 @@
     "gettext-domain": "godville-status",
     "settings-schema": "org.gnome.shell.extensions.godville-status",
     "extension.js": "extension.js",
-    "convenience.js": "convenience.js"
+    "preferences": "prefs.js"
 } 

@@ -20,12 +20,12 @@ function fillPreferencesWindow(window) {
     const godnameEntry = builder.get_object('godnameEntry');
     const apiKeyEntry = builder.get_object('apiKeyEntry');
 
-    settings.bind('godname', godnameEntry, 'text', Gio.SettingsBindFlags.DEFAULT);
+    settings.bind('character-name', godnameEntry, 'text', Gio.SettingsBindFlags.DEFAULT);
     settings.bind('api-key', apiKeyEntry, 'text', Gio.SettingsBindFlags.DEFAULT);
 
     // Add change handlers for text entries
     godnameEntry.connect('changed', () => {
-        settings.set_string('godname', godnameEntry.get_text());
+        settings.set_string('character-name', godnameEntry.get_text());
     });
 
     apiKeyEntry.connect('changed', () => {
@@ -35,8 +35,9 @@ function fillPreferencesWindow(window) {
     // Bind display settings
     const displaySettings = [
         'show-health', 'show-exp', 'show-gold', 'show-arena', 'show-quest',
-        'show-pet', 'show-clan', 'show-alignment', 'show-boss', 'show-inventory',
-        'show-materials', 'show-distance', 'show-diary'
+        'show-side-job', 'show-pet', 'show-clan', 'show-alignment', 'show-boss',
+        'show-inventory', 'show-materials', 'show-distance', 'show-diary', 'show-eye',
+        'show-aura', 'show-words', 'show-savings', 'show-temple'
     ];
 
     displaySettings.forEach(setting => {
