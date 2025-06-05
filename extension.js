@@ -8,10 +8,6 @@ const Util = imports.misc.util;
 const MessageTray = imports.ui.messageTray;
 const Gettext = imports.gettext;
 
-// Correct Gettext initialization for locale
-const LOCALE_DIR = Me.dir.get_child('locale').get_path();
-Gettext.bindtextdomain('godville-status', LOCALE_DIR);
-Gettext.textdomain('godville-status');
 const _ = Gettext.gettext;
 
 // Constants and configuration
@@ -103,8 +99,9 @@ const HealthBar = GObject.registerClass({
 
 const GodvilleIndicator = GObject.registerClass(
     class GodvilleIndicator extends PanelMenu.Button {
-        _init() {
+        _init(settings) {
             super._init(0.0, 'Godville Status Indicator');
+            this._settings = settings;
             this._initializeComponents();
             this._setupEventHandlers();
             this._startPeriodicUpdates();
@@ -113,7 +110,6 @@ const GodvilleIndicator = GObject.registerClass(
 
         _initializeComponents() {
             this._initializeNotificationSource();
-            this._initializeSettings();
             this._initializeUIComponents();
             this._loadStylesheet();
             this._createMenuItems();
@@ -122,15 +118,6 @@ const GodvilleIndicator = GObject.registerClass(
         _initializeNotificationSource() {
             this._notificationSource = new MessageTray.Source('Godville Status', 'godville-status-symbolic');
             Main.messageTray.add(this._notificationSource);
-        }
-
-        _initializeSettings() {
-            this._settings = ExtensionUtils.getSettings('org.gnome.shell.extensions.godville-status');
-            this._settings.connect('changed', () => {
-                if (this._lastData) {
-                    this._updateMenu(this._lastData);
-                }
-            });
         }
 
         _initializeUIComponents() {
@@ -225,13 +212,13 @@ const GodvilleIndicator = GObject.registerClass(
             const url = `https://godville.net/gods/api/${encodeURIComponent(godname)}/${apiKey}`;
             log('[Godville Status] Fetching data from: ' + url);
 
-            const session = new Soup.Session();
+            this._session = new Soup.Session();
             const message = new Soup.Message({
                 method: 'GET',
                 uri: new Soup.URI(url)
             });
 
-            session.queue_message(message, (session, message) => this._handleApiResponse(message));
+            this._session.queue_message(message, (session, message) => this._handleApiResponse(message));
         }
 
         _handleApiResponse(message) {
@@ -506,6 +493,10 @@ const GodvilleIndicator = GObject.registerClass(
                 GLib.source_remove(this._timeout);
                 this._timeout = null;
             }
+            if (this._session) {
+                this._session.abort();
+                this._session = null;
+            }
             if (this._notificationSource) {
                 this._notificationSource.destroy();
                 this._notificationSource = null;
@@ -566,7 +557,7 @@ const GodvilleIndicator = GObject.registerClass(
                 style_class: 'godville-website-icon'
             }));
             this.websiteButton.connect('clicked', () => {
-                Util.trySpawnCommandLine('xdg-open https://godville.net/superhero');
+                Gio.AppInfo.launch_default_for_uri('https://godville.net/superhero', null);
             });
             this.headerContainer.add_child(this.websiteButton);
         }
@@ -706,14 +697,15 @@ const GodvilleIndicator = GObject.registerClass(
 class Extension {
     constructor() {
         this._indicator = null;
-        this._settings = ExtensionUtils.getSettings('org.gnome.shell.extensions.godville-status');
+        this._settings = null;
         this._positionId = null;
-        this._changeSignal = null; // Для хранения сигнала настроек
+        this._changeSignal = null;
     }
 
     enable() {
+        this._settings = ExtensionUtils.getSettings('org.gnome.shell.extensions.godville-status');
         this._createIndicator();
-        // Подключаем сигнал только для изменения позиции
+        
         this._changeSignal = this._settings.connect(
             'changed::extension-position',
             () => this._recreateIndicator()
@@ -721,22 +713,21 @@ class Extension {
     }
 
     disable() {
-        // Отключаем все сигналы
+        // Disconnect all signals
         if (this._changeSignal) {
             this._settings.disconnect(this._changeSignal);
             this._changeSignal = null;
         }
         this._destroyIndicator();
+        this._settings = null;
     }
 
     _createIndicator() {
         if (this._indicator) return;
 
-        // Генерируем уникальный ID с случайным числом
         this._positionId = `godville-status-${Math.floor(Math.random() * 1000)}`;
-        this._indicator = new GodvilleIndicator();
+        this._indicator = new GodvilleIndicator(this._settings);
         
-        // Добавляем с учетом текущей позиции
         Main.panel.addToStatusArea(
             this._positionId,
             this._indicator,
@@ -748,7 +739,7 @@ class Extension {
     _recreateIndicator() {
         log('[Godville] Recreating indicator...');
         this._destroyIndicator();
-        GLib.timeout_add(GLib.PRIORITY_DEFAULT, 100, () => {
+        this._recreateTimeout = GLib.timeout_add(GLib.PRIORITY_DEFAULT, 100, () => {
             this._createIndicator();
             return GLib.SOURCE_REMOVE;
         });
@@ -761,9 +752,16 @@ class Extension {
         this._indicator.destroy();
         this._indicator = null;
         this._positionId = null;
+
+        // Remove recreate timeout if it exists
+        if (this._recreateTimeout) {
+            GLib.source_remove(this._recreateTimeout);
+            this._recreateTimeout = null;
+        }
     }
 }
 
 function init() {
+    ExtensionUtils.initTranslations();
     return new Extension();
 } 
